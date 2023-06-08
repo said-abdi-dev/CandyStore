@@ -1,5 +1,6 @@
 package com.techelevator.view;
 
+import java.io.File;
 import java.util.Scanner;
 
 /*
@@ -12,7 +13,7 @@ import java.util.Scanner;
  */
 public class Menu {
 	
-	private static final Scanner in = new Scanner(System.in);
+	private static final Scanner userInput = new Scanner(System.in);
 
 	public void showWelcomeMessage() {
 		System.out.println("***************************");
@@ -21,4 +22,18 @@ public class Menu {
 		System.out.println("***************************");
 		System.out.println();
 	}
+
+	public void menuDisplay() {
+		System.out.println("(1) Show Inventory");
+		System.out.println("(2) Make Sale");
+		System.out.println("(3) Quit");
+	}
+
+	public String getInventoryFileName() {
+		System.out.println("Enter inventory file name >>> ");
+		String userInputFileName = userInput.nextLine();
+		// File inputFile = new File(userInputFileName);
+		return userInputFileName;
+	}
+
 }

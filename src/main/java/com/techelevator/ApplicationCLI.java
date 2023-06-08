@@ -46,6 +46,11 @@ public class ApplicationCLI {
 			ELSE IF the User's Choice is Quit
 				THEN break the loop so the application stops
 			*/
+
+			String inventoryFileName = menu.getInventoryFileName();
+
+			try (  )
+
 		}
 	}
 
