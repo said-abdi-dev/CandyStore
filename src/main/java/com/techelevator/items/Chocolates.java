@@ -6,4 +6,10 @@ public class Chocolates extends CandyStoreItem {
         super(name, price, indicator);
     }
 
+    // step 6 work
+//    @Override
+//    public String getProductCode() {
+//        return "Chocolate Confectionery";
+//    }
+
 }

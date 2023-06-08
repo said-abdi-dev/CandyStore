@@ -20,6 +20,15 @@ public abstract class CandyStoreItem {
         this.indicator = indicator;
     }
 
+    // Abstract method
+
+   /*
+    step 6
+
+    public abstract String getProductCode();
+
+    */
+
     //Getters and Setters
 
 
