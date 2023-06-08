@@ -6,4 +6,5 @@ package com.techelevator.items;
     This is an abstract class that should be used as a superclass for the items.
  */
 public abstract class CandyStoreItem {
+
 }

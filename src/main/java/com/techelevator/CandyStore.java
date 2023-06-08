@@ -5,4 +5,5 @@ package com.techelevator;
     contain all the "work"
  */
 public class CandyStore {
+
 }
