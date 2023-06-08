@@ -19,6 +19,15 @@ public abstract class CandyStoreItem {
     public abstract String getProductType();
 
 
+    // Abstract method
+
+   /*
+    step 6
+
+    public abstract String getProductCode();
+
+    */
+
     //Getters and Setters
 
 
