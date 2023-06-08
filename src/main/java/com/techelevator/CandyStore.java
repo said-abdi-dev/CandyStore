@@ -17,7 +17,7 @@ public class CandyStore {
 
     public CandyStore (String inventoryFileName) throws FileNotFoundException {
         InventoryFileReader inventoryReader = new InventoryFileReader(inventoryFileName);
-//        inventory = inventoryReader.
+        inventory = inventoryReader.loadInventory();
     }
 
     public Map<String, CandyStoreItem> getInventory() {

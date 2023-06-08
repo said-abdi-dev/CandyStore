@@ -1,6 +1,10 @@
 package com.techelevator.view;
 
+import com.techelevator.CandyStore;
+import com.techelevator.items.CandyStoreItem;
+
 import java.io.File;
+import java.util.Map;
 import java.util.Scanner;
 
 /*
@@ -14,6 +18,7 @@ import java.util.Scanner;
 public class Menu {
 	
 	private static final Scanner userInput = new Scanner(System.in);
+
 
 	public void showWelcomeMessage() {
 		System.out.println("***************************");
@@ -34,6 +39,27 @@ public class Menu {
 		String userInputFileName = userInput.nextLine();
 		// File inputFile = new File(userInputFileName);
 		return userInputFileName;
+	}
+
+	public void tellUserFileNotFound() {
+		System.out.println("File Not Found, Please try again");
+	}
+
+	public String getChoiceFromMenu() {
+		System.out.println("(1) Show Inventory");
+		System.out.println("(2) Make Sale");
+		System.out.println("(3) Quit");
+		return userInput.nextLine();
+	}
+
+
+	public void menuDisplay(Map<String, CandyStoreItem> inventory) {
+
+		for (Map.Entry<String, CandyStoreItem> entry : inventory.entrySet()) {
+			System.out.printf("%1s : %1s : %1s : %1s : %1.2f %n",
+					entry.getKey(), entry.getValue().getName(), entry.getValue().isIndicator(),
+					entry.getValue().getQty(), entry.getValue().getPrice());
+		}
 	}
 
 }

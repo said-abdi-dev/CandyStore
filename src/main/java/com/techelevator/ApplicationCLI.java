@@ -1,6 +1,10 @@
 package com.techelevator;
 
+import com.techelevator.items.CandyStoreItem;
 import com.techelevator.view.Menu;
+
+import java.io.FileNotFoundException;
+import java.util.Map;
 
 /*
  * This class should control the workflow of the application, but not do any other work
@@ -22,6 +26,8 @@ public class ApplicationCLI {
 	 */
 	private Menu menu;
 
+	private CandyStore store;
+
 	public ApplicationCLI(Menu menu) {
 		this.menu = menu;
 	}
@@ -31,8 +37,8 @@ public class ApplicationCLI {
 	 */
 	public void run() {
 
-		menu.showWelcomeMessage();
 
+		menu.showWelcomeMessage();
 
 		while (true) {
 			/*
@@ -49,9 +55,30 @@ public class ApplicationCLI {
 
 			String inventoryFileName = menu.getInventoryFileName();
 
-//			try (  )
+			try {
+				store = new CandyStore(inventoryFileName);
+				break;
+			} catch (FileNotFoundException e) {
+				menu.tellUserFileNotFound();
+			}
 
 		}
+
+		menu.showWelcomeMessage();
+
+		while (true) {
+			String userSelection = menu.getChoiceFromMenu();
+			if(userSelection.equals("1")) {
+				showInventory();
+			}
+
+		}
+
+	}
+
+	public void showInventory() {
+		Map<String, CandyStoreItem> inventory = store.getInventory();
+		menu.menuDisplay(inventory);
 	}
 
 	/*

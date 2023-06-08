@@ -2,6 +2,7 @@ package com.techelevator;
 
 import com.techelevator.filereader.InventoryFileReader;
 import com.techelevator.items.CandyStoreItem;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -22,7 +23,8 @@ public class MenuTests {
 
     @Test
     public void load_inventory() throws FileNotFoundException {
-        Map<String, CandyStoreItem> inventory = target.
+        Map<String, CandyStoreItem> inventory = target.loadInventory();
+        Assert.assertEquals(18, inventory.size());
     }
 
 

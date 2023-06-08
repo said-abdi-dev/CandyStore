@@ -1,7 +1,7 @@
 package com.techelevator.filereader;
 
 import com.techelevator.CandyStore;
-import com.techelevator.items.CandyStoreItem;
+import com.techelevator.items.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -21,7 +21,7 @@ public class InventoryFileReader {
         this.inventoryFileName = inventoryFileName;
 
     }
-        // Load inventory Method
+    // Load inventory Method
 
     public Map<String, CandyStoreItem> loadInventory() throws FileNotFoundException {
         Map<String, CandyStoreItem> inventory = new LinkedHashMap<String, CandyStoreItem>();
@@ -37,24 +37,36 @@ public class InventoryFileReader {
         return inventory;
     }
 
-
-
     // Store Item From Parts Method
 
     private CandyStoreItem buildStoreItemFromParts(String lineFromFile) {
         String[] itemParts = lineFromFile.split("\\|");
-        CandyStoreItem item = null;
 
-        String type = itemParts[0];
+        String productCode = itemParts[0];
         String sku = itemParts[1];
         String name = itemParts[2];
-        String
+        double price = Double.parseDouble(itemParts[3]);
+        boolean indicator = Boolean.parseBoolean(itemParts[4]);
 
+        CandyStoreItem item = null;
+
+        if (productCode.equalsIgnoreCase("CH")) {
+            item = new Chocolates();
+        } else if (productCode.equalsIgnoreCase("SR")) {
+            item = new Sours();
+        } else if (productCode.equalsIgnoreCase("HC")) {
+            item = new HardCandy();
+        } else if (productCode.equalsIgnoreCase("LI")) {
+            item = new Licorice();
+        }
+
+        item.setSku(sku);
+        item.setName(name);
+        item.setPrice(price);
+        item.setIndicator(indicator);
 
         return item;
     }
-
-
 
 
 }

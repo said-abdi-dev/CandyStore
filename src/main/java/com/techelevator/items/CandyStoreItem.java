@@ -13,7 +13,16 @@ public abstract class CandyStoreItem {
     private String sku;
     private String name;
     private double price;
-    private boolean indicator;
+    private boolean indicator = false;
+    private int qty = 100;
+
+
+//    public CandyStoreItem(String sku, String name, double price, boolean indicator) {
+//        this.sku = sku;
+//        this.name = name;
+//        this.price = price;
+//        this.indicator = indicator;
+//    }
 
 
     public abstract String getProductType();
@@ -31,6 +40,13 @@ public abstract class CandyStoreItem {
     //Getters and Setters
 
 
+    public int getQty() {
+        return qty;
+    }
+
+    public void setQty(int qty) {
+        this.qty = qty;
+    }
 
     public String getSku() {
         return sku;
