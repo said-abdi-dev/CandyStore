@@ -64,12 +64,13 @@ public class ApplicationCLI {
 
 		}
 
-		menu.showWelcomeMessage();
 
 		while (true) {
 			String userSelection = menu.getChoiceFromMenu();
 			if(userSelection.equals("1")) {
 				showInventory();
+			} else if (userSelection.equals("2")) {
+				showSubMenu();
 			}
 
 		}
@@ -79,6 +80,10 @@ public class ApplicationCLI {
 	public void showInventory() {
 		Map<String, CandyStoreItem> inventory = store.getInventory();
 		menu.menuDisplay(inventory);
+	}
+
+	public void showSubMenu() {
+		menu.getSubMenu(store.getBalance());
 	}
 
 	/*

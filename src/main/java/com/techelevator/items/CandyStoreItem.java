@@ -13,7 +13,7 @@ public abstract class CandyStoreItem {
     private String sku;
     private String name;
     private double price;
-    private boolean indicator = false;
+    private boolean indicator = true;
     private int qty = 100;
 
 
@@ -40,8 +40,14 @@ public abstract class CandyStoreItem {
     //Getters and Setters
 
 
-    public int getQty() {
-        return qty;
+    public String getQty() {
+        String quantity = "";
+        if (qty == 0) {
+            quantity = "SOLD OUT";
+        } else {
+            quantity = Integer.toString(qty);
+        }
+        return quantity;
     }
 
     public void setQty(int qty) {
@@ -72,12 +78,18 @@ public abstract class CandyStoreItem {
         this.price = price;
     }
 
-    public boolean isIndicator() {
-        return indicator;
+    public String isIndicator() {
+        String wrapped = "";
+        if (indicator) {
+            wrapped = "Y";
+        } else wrapped = "N";
+        return wrapped;
+        //return indicator;
     }
 
     public void setIndicator(boolean indicator) {
         this.indicator = indicator;
     }
+
 
 }

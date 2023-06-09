@@ -1,5 +1,6 @@
 package com.techelevator;
 
+import com.techelevator.customer.Customer;
 import com.techelevator.filereader.InventoryFileReader;
 import com.techelevator.items.CandyStoreItem;
 
@@ -15,6 +16,9 @@ public class CandyStore {
 
     private Map<String, CandyStoreItem> inventory;
 
+    private Customer customer = new Customer();
+
+
     public CandyStore (String inventoryFileName) throws FileNotFoundException {
         InventoryFileReader inventoryReader = new InventoryFileReader(inventoryFileName);
         inventory = inventoryReader.loadInventory();
@@ -22,5 +26,9 @@ public class CandyStore {
 
     public Map<String, CandyStoreItem> getInventory() {
         return inventory;
+    }
+
+    public double getBalance() {
+        return customer.getCustomerBalance();
     }
 }

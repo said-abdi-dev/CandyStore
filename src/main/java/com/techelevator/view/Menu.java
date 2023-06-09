@@ -1,6 +1,7 @@
 package com.techelevator.view;
 
 import com.techelevator.CandyStore;
+import com.techelevator.customer.Customer;
 import com.techelevator.items.CandyStoreItem;
 
 import java.io.File;
@@ -52,14 +53,25 @@ public class Menu {
 		return userInput.nextLine();
 	}
 
+	public String getSubMenu(double balance) {
+		System.out.println("(1) Take Money");
+		System.out.println("(2) Select Products");
+		System.out.println("(3) Complete Sale");
+		System.out.println("Current Customer Balance: " + balance);
+		return userInput.nextLine();
+	}
+
 
 	public void menuDisplay(Map<String, CandyStoreItem> inventory) {
-
+		System.out.printf("%-5s %-15s %-10s %-5s %-9s %n", "Id", "Name", "Wrapper", "Qty", "Price");
 		for (Map.Entry<String, CandyStoreItem> entry : inventory.entrySet()) {
-			System.out.printf("%1s : %1s : %1s : %1s : %1.2f %n",
+
+			System.out.printf("%-5s %-15s %-10s %-5s $%-1.2f %n",
 					entry.getKey(), entry.getValue().getName(), entry.getValue().isIndicator(),
 					entry.getValue().getQty(), entry.getValue().getPrice());
 		}
 	}
+
+
 
 }

@@ -5,10 +5,7 @@ import com.techelevator.items.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 /*
     This class should contain any and all details of access to the inventory file
@@ -24,7 +21,7 @@ public class InventoryFileReader {
     // Load inventory Method
 
     public Map<String, CandyStoreItem> loadInventory() throws FileNotFoundException {
-        Map<String, CandyStoreItem> inventory = new LinkedHashMap<String, CandyStoreItem>();
+        Map<String, CandyStoreItem> inventory = new TreeMap<String, CandyStoreItem>();
         File inventoryFile = new File(inventoryFileName);
         try (Scanner fileScanner = new Scanner(inventoryFile)) {
             while (fileScanner.hasNextLine()) {
@@ -46,7 +43,10 @@ public class InventoryFileReader {
         String sku = itemParts[1];
         String name = itemParts[2];
         double price = Double.parseDouble(itemParts[3]);
-        boolean indicator = Boolean.parseBoolean(itemParts[4]);
+        boolean indicator = false;
+        if (itemParts[4].equals("T")) {
+            indicator = true;
+            };
 
         CandyStoreItem item = null;
 
