@@ -2,7 +2,7 @@ package com.techelevator.customer;
 
 public class Customer {
 
-    private double customerBalance = 0.0;
+    private double customerBalance = 0.00;
 
 
 
@@ -13,4 +13,8 @@ public class Customer {
     public void setCustomerBalance(double customerBalance) {
         this.customerBalance = customerBalance;
     }
+
+    //method for addToBalance
+
+
 }

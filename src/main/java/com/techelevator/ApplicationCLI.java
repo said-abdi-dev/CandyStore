@@ -1,9 +1,11 @@
 package com.techelevator;
 
+import com.techelevator.customer.Customer;
 import com.techelevator.items.CandyStoreItem;
 import com.techelevator.view.Menu;
 
 import java.io.FileNotFoundException;
+import java.util.Currency;
 import java.util.Map;
 
 /*
@@ -70,11 +72,17 @@ public class ApplicationCLI {
 			if(userSelection.equals("1")) {
 				showInventory();
 			} else if (userSelection.equals("2")) {
-				showSubMenu();
+				while (true) {
+					userSelection = menu.getSubMenu(store.getBalance());
+					if (userSelection.equals("1")) {
+						store.addBalance(menu.menuToAddMoney());
+
+						// Creating method to use here
+
+					}
+				}
 			}
-
 		}
-
 	}
 
 	public void showInventory() {
@@ -82,9 +90,13 @@ public class ApplicationCLI {
 		menu.menuDisplay(inventory);
 	}
 
-	public void showSubMenu() {
-		menu.getSubMenu(store.getBalance());
+	public String showSubMenu() {
+		return menu.getSubMenu(store.getBalance());
 	}
+
+
+
+
 
 	/*
 	 * This starts the application, but you shouldn't need to change it.  

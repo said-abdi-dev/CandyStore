@@ -31,4 +31,24 @@ public class CandyStore {
     public double getBalance() {
         return customer.getCustomerBalance();
     }
+
+    // Method to add balance
+    // create a current balance variable
+    // add the user return to the current balance and that method will have the fine line
+
+
+    // If we change to boolean return, we can call this method in the AppCLI
+    // line 75ish to help take care of error messages
+    public boolean addBalance(int amountToAdd) {
+        boolean successfulAdd = true;
+        if (amountToAdd <= 100) {
+            return successfulAdd = true;
+        } else if (amountToAdd >= 0) {
+            return successfulAdd = true;
+        }
+        customer.setCustomerBalance( getBalance() + amountToAdd);
+        return successfulAdd;
+    }
+
+
 }

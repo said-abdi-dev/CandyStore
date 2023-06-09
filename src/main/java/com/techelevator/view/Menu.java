@@ -21,6 +21,7 @@ public class Menu {
 	private static final Scanner userInput = new Scanner(System.in);
 
 
+
 	public void showWelcomeMessage() {
 		System.out.println("***************************");
 		System.out.println("**     Silver Shamrock   **");
@@ -57,9 +58,11 @@ public class Menu {
 		System.out.println("(1) Take Money");
 		System.out.println("(2) Select Products");
 		System.out.println("(3) Complete Sale");
-		System.out.println("Current Customer Balance: " + balance);
+		System.out.print("Current Customer Balance: $");
+		System.out.printf("%.2f %n",balance);
 		return userInput.nextLine();
 	}
+
 
 
 	public void menuDisplay(Map<String, CandyStoreItem> inventory) {
@@ -70,6 +73,13 @@ public class Menu {
 					entry.getKey(), entry.getValue().getName(), entry.getValue().isIndicator(),
 					entry.getValue().getQty(), entry.getValue().getPrice());
 		}
+	}
+
+
+	public int menuToAddMoney() {
+		System.out.println("How much would you like to take?");
+		return Integer.parseInt(userInput.nextLine());
+
 	}
 
 
